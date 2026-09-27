@@ -9,7 +9,8 @@ from app.database.database import Database
 
 from app.ui.theme import APP_STYLE
 from app.ui.widgets.sidebar import Sidebar
-
+from pathlib import Path
+from PyQt6.QtGui import QIcon
 from app.ui.pages.dashboard import DashboardPage
 from app.ui.pages.games_page import GamesPage
 from app.ui.pages.performance_page import PerformancePage
@@ -22,6 +23,9 @@ class MainWindow(QMainWindow):
     def __init__(self):
 
         super().__init__()
+
+        icon_path = Path(__file__).resolve().parents[3] / "assets" / "icons" / "gamehub.ico"
+        self.setWindowIcon(QIcon(str(icon_path)))
 
         self.setWindowTitle(
             "GameHub"
